@@ -28,14 +28,19 @@ class MainActivity : AppCompatActivity() {
         btn_Entrar.setOnClickListener{
             val email = edt_Email.text.toString()
             val senha = edt_Senha.text.toString()
-            auth.signInWithEmailAndPassword(email,senha)
-                .addOnSuccessListener {
-                    val intent = Intent(this,PrincipalActivity::class.java)
-                    startActivity(intent)
-                }
-                .addOnFailureListener{
-                    Toast.makeText(this,"Falha na autencticação",Toast.LENGTH_SHORT).show()
-                }
+            if(email.toString() == "" || senha.toString() == ""){
+                Toast.makeText(this,"Campos Requiridos",Toast.LENGTH_SHORT).show()
+            }else{
+                auth.signInWithEmailAndPassword(email,senha)
+                    .addOnSuccessListener {
+                        val intent = Intent(this,PrincipalActivity::class.java)
+                        startActivity(intent)
+                    }
+                    .addOnFailureListener{
+                        Toast.makeText(this,"Falha na autencticação",Toast.LENGTH_SHORT).show()
+                    }
+            }
+
         }
 
         /*
