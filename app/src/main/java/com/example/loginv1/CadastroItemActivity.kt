@@ -47,7 +47,7 @@ class CadastroItemActivity : AppCompatActivity() {
             val despesa = hashMapOf(
                 "categoria" to txt_Categoria,
                 "status" to txt_Status,
-                "valor" to edt_Valor.text.toString().toInt(),
+                "valor" to edt_Valor.text.toString(),
                 "dataVencimento" to edt_DataVencimento.text.toString(),
                 "descricao" to edt_Descricao.text.toString()
             )
@@ -59,7 +59,7 @@ class CadastroItemActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this,"Falha no armazenamento: "+edt_Descricao.text.toString(),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Falha no armazenamento",Toast.LENGTH_SHORT).show()
                 }
         }
 
